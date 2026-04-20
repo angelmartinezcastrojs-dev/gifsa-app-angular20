@@ -1,0 +1,7 @@
+<section class="py-5">
+    @if (giphsService.trendingGifsLoading()) {
+    <p>Cargando...</p>
+    } @else {
+    <gifs-list [gifs]="giphsService.trendingGifs()" />
+    }
+</section>
