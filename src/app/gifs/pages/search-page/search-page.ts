@@ -14,9 +14,6 @@ export default class SearchPage {
   giphsService = inject(GiphsService);
   gifs = signal<Gif[]>([]);
 
-  constructor() {
-    this.giphsService.searchGiphs('drangonball');
-  }
 
   onSearch(query: string) {
     if (query.trim().length === 0) return;

@@ -1,7 +1,12 @@
-<section class="py-5">
-    @if (giphsService.trendingGifsLoading()) {
-    <p>Cargando...</p>
-    } @else {
-    <gifs-list [gifs]="giphsService.trendingGifs()" />
+<div class="h-screen overflow-y-scroll  grid grid-cols-2 md:grid-cols-4 gap-4 pt-5" (scroll)="onScroll($event)"
+    #groupDiv>
+    @for (group of giphsService.trendingGifsGroup(); track $index) {
+    <div class="grid gap-4">
+        @for (gif of group; track gif.id) {
+        <div>
+            <img class="h-full max-w-full rounded-lg object-cover" [src]="gif.url" [alt]="gif.title">
+        </div>
+        }
+    </div>
     }
-</section>
+</div>
